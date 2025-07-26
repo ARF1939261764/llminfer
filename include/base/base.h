@@ -3,6 +3,16 @@
 
 namespace llminfer_base {
 
+enum class data_type_t{
+  INT8 = 0,
+  INT16 = 1,
+  BF16 = 2,
+  FP16 = 3,
+  FP32 = 4,
+  TP32 = 5,
+  UNKNOW
+};
+
 enum class memcpy_kind_t {
   kMemcpyCPU2CPU = 0,
   kMemcpyCPU2CUDA = 1,
