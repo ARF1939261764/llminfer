@@ -16,23 +16,22 @@ set(CMAKE_CUDA_STANDARD 17)  # 需 CUDA 11.0+ 版本支持
 set(CMAKE_CUDA_STANDARD_REQUIRED ON)
 
 # 收集源文件（推荐手动列出，避免遗漏或误包含）
-set(DIR_TARGET_CPU
+set(DIR_TARGET_SRC_CPU
   source/target/cpu/cpu_alloc.cpp
 )
-set(DIR_BASE
+set(DIR_COMMON_SRC
   source/base/buffer.cpp
   source/base/alloc.cpp
-)
-set(DIR_MAIN
+  source/tensor/tensor.cpp
+  source/models/llama2/llama2.cpp
   source/main/main.cpp
   source/main/main.cu
 )
 
 # 构建可执行文件
 add_executable(llama
-  ${DIR_TARGET_CPU}
-  ${DIR_BASE}
-  ${DIR_MAIN}
+  ${DIR_TARGET_SRC_CPU}
+  ${DIR_COMMON_SRC}
 )
 
 find_package(GTest REQUIRED)
